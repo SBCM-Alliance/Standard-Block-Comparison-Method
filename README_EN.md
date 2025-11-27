@@ -61,6 +61,7 @@ Based on the calculated Impact value ($I$), the penetration of the measure is ju
 *   **Interpretation:** While this figure gives an Impact of 390, paradoxically it suggests a logistical unreality: "An average of 16,000 people per municipality must be mobilized (including repeats during the period)" to achieve this goal.
 
 ## Usage
+### 1. Python Script (For Engineers)
 
 You can easily verify numbers at hand using the Python script included in this repository.
 
@@ -74,3 +75,12 @@ python methodology/block_calculator.py --value 3000 --target_ratio 1.0
 
 # Example: Verifying budget (10 billion yen, target ratio 100%)
 python methodology/block_calculator.py --value 10000000000 --target_ratio 1.0
+```
+
+### 2. Google Sheets (For Everyone)
+You can use this method without coding skills.
+Copy the code from `methodology/google_sheets_script.js` into your Google Sheet's "Extensions > Apps Script".
+
+**Formulas:**
+*   Calculate Score: `=IMPACT_SCORE(Value, TargetRatio)`
+*   Get Verdict: `=IMPACT_VERDICT(Score)`
