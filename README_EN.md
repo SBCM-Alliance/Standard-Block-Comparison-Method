@@ -114,4 +114,70 @@ python verification/sensitivity_analysis.py --value 28200000 --target_ratio 1.0 
 
 ### Interpretation
 If the lower bound of the "95% Confidence Interval (95% CI)" is below 1.0, you can statistically conclude that the measure is at an "Error Level" even when accounting for uncertainty.
-```
+
+## Extension Module: Budget Portfolio Analysis
+
+## Overview
+This module applies the "Standard Block Comparison Method" to all items in a financial statement to visualize the balance between **"Invested Tax (Budget)"** and **"Achieved Outcome (Coverage)."**
+This quantifies how **"distorted"** a specific project is in terms of its return to citizens.
+
+## 1. Definition of Budget Impact ($I_{budget}$)
+Measures the "weight" of a project's budget relative to the financial scale of a standard municipality (1 Block).
+
+$$ B_{money} = \frac{S_{total}}{N} $$
+$$ I_{budget} = \frac{v_{cost}}{B_{money}} $$
+
+*   **$S_{total}$:** **Estimated General Account Budget of a Standard Municipality (Pop. approx. 70k) $\approx$ 30 Billion JPY (approx. $200M USD)**
+    *   *Note: We use a fixed "standard wallet size" as the denominator to measure "how huge the spending is relative to the wallet."*
+*   **$N$:** Total number of basic municipalities (1,718).
+*   **$v_{cost}$:** Settlement amount of the project (e.g., Tablets: 1.5 Billion JPY).
+*   **$B_{money}$:** **Standard Budget Block** (Average cost a municipality should spend on a sector).
+*   **$I_{budget}$:** **Budget Impact** (How many times the spending is compared to the standard sense of money).
+
+## 2. Definition of Budget Distortion Index ($D_{index}$)
+Calculates the degree of "spending money but reaching few people."
+A higher value indicates a high probability of **"Poor Cost-Performance"** (e.g., Middleman exploitation, White elephant projects, Vested interests).
+
+$$ D_{index} = \frac{I_{budget}}{I_{coverage}} $$
+
+*   **$I_{budget}$:** Budget Impact (Size of Money)
+*   **$I_{coverage}$:** Coverage Impact (Size of Reach *calculated via Standard Block Method*)
+*   **$D_{index}$:** **Budget Distortion Index**
+
+---
+
+## The Matrix
+
+By plotting the calculated $I_{budget}$ (Money) and $I_{coverage}$ (People), projects can be classified into four quadrants.
+
+| Quadrant | Status | Verdict ($D_{index}$) | Examples |
+| :--- | :--- | :--- | :--- |
+| **Q1**<br>(High Money / High Reach) | **Infrastructure** | $D \approx 1$ | Waste collection, Roads, School lunches.<br>Expensive but used by everyone. Appropriate. |
+| **Q2**<br>(Low Money / High Reach) | **Innovation** | $D \ll 1$ | Excellent DX policies, SNS PR.<br>Low budget reaching many citizens. "God-tier Projects." |
+| **Q3**<br>(Low Money / Low Reach) | **Nominal** | $D \approx 1$ | Small events, Committees.<br>Harmless but ineffective. |
+| **Q4**<br>(High Money / Low Reach) | **【Distortion】** | **$D \gg 1$** | **Redevelopments, Tablets, Unused Apps.**<br>**Huge taxes vanishing into the pockets of a few.** |
+
+> **※ Note on Exceptions (Social Safety Nets)**
+> Welfare and life-saving projects (e.g., Livelihood Protection, Emergency Medical Services) structurally fall into Q4 (High Cost / Few Targets). These should be evaluated not as "Waste (Distortion)" but as **"Social Costs."**
+
+---
+
+## Simulation: Kashiwa City Case Study
+
+### Case A: Educational Tablets (1.5 Billion JPY / 50% Utilization)
+*   **Budget ($I_b$):** Huge (Assumed several times the standard ICT budget) $\rightarrow$ **10.0**
+*   **Coverage ($I_c$):** Only half utilized $\rightarrow$ **0.5**
+*   **Distortion ($D$):** $10.0 \div 0.5 =$ **20.0 (Abnormal)**
+    *   *Verdict:* "Q4 (Distortion)." Effectiveness is too low for the investment amount.
+
+### Case B: Preconception Care (370 Million JPY / 300 Users)
+*   **Budget ($I_b$):** Large relative to scale $\rightarrow$ **2.0**
+*   **Coverage ($I_c$):** Error level $\rightarrow$ **0.01**
+*   **Distortion ($D$):** $2.0 \div 0.01 =$ **200.0 (Extremely Abnormal)**
+    *   *Verdict:* "Q4 (The Void)." Money vanishes, and almost no one benefits.
+
+---
+
+## What This Formula Reveals
+By pouring financial statement data into this formula, projects plotted in **"Quadrant 4 (High Money / Low Reach)"** are exposed.
+This area represents the **"Pathology needing Audit"** (Vested interests, Thoughtless spending).
