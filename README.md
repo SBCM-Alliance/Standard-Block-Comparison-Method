@@ -60,7 +60,7 @@ $$ B = \frac{P \times R}{N} $$
 *   **分析結果 ($I$):** $28,200,000 \div 72,176 \approx$ **390**
 *   **解釈の転換:** この数字は「すべての自治体から平均390人が行く」とも読めるが、逆説的に「1自治体あたり平均1.6万人を動員しないと達成不能（※期間中のリピート含む）」という兵站（ロジスティクス）の非現実性を示唆している。
 
-## 使い方 (Usage)
+## Python版の使い方 (Usage)
 
 リポジトリに含まれるPythonスクリプトを使用して、手元の数値を簡単に検証できます。
 
@@ -75,3 +75,13 @@ python methodology/block_calculator.py --value 3000 --target_ratio 1.0
 # 予算の検証例 (100億円、ターゲット比率100%)
 python methodology/block_calculator.py --value 10000000000 --target_ratio 1.0
 ```
+
+## Googleスプレッドシート版の使い方 (For Everyone)
+プログラミング不要で、表計算ソフト上で計算できます。
+`methodology/google_sheets_script.js` のコードを、Googleスプレッドシートの「拡張機能 > Apps Script」にコピペして保存してください。
+
+**使用例:**
+| A列 (発表数値) | B列 (ターゲット比率) | C列 (インパクト) | D列 (判定) |
+| :--- | :--- | :--- | :--- |
+| 3000 | 0.15 | `=IMPACT_SCORE(A2, B2)` | `=IMPACT_VERDICT(C2)` |
+
