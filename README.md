@@ -88,3 +88,31 @@ python methodology/block_calculator.py --value 10000000000 --target_ratio 1.0
 | :--- | :--- | :--- | :--- |
 | 3000 | 0.15 | `=IMPACT_SCORE(A2, B2)` | `=IMPACT_VERDICT(C2)` |
 
+## 統計的検証（モンテカルロ・シミュレーション）
+「ターゲット比率の推計が甘いのでは？」「観測データに誤差があるのでは？」という指摘に対し、本手法の結論が揺らがないか（堅牢性）を検証するためのスクリプトです。
+ターゲット比率の不確実性や観測誤差を考慮し、数万回のシミュレーションを行って信頼区間を算出します。
+
+### 必要要件
+*   Python 3.6+
+*   **NumPy** ライブラリ
+
+### 実行方法
+
+1. ライブラリのインストール
+```bash
+pip install numpy
+```
+
+2. シミュレーションの実行
+```bash
+# 基本的な検証（柏市の例：3000人、比率0.15）
+python verification/sensitivity_analysis.py --value 3000 --target_ratio 0.15
+
+# 詳細設定（不確実性 ±10% を想定する場合など）
+# -sd オプションで標準偏差を指定できます（デフォルトは0.03）
+python verification/sensitivity_analysis.py --value 28200000 --target_ratio 1.0 --ratio_sd 0.1
+```
+
+### 出力例
+「95%信頼区間（95% CI）」の下限値が 1.0 を下回っている場合、その施策は「統計的誤差を考慮しても失敗（誤差レベル）」であると断定できます。
+```
