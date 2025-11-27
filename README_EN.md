@@ -86,3 +86,32 @@ Copy the code from `methodology/google_sheets_script.js` into your Google Sheet'
 **Formulas:**
 *   Calculate Score: `=IMPACT_SCORE(Value, TargetRatio)`
 *   Get Verdict: `=IMPACT_VERDICT(Score)`
+
+## Statistical Verification (Monte Carlo Simulation)
+This script verifies the robustness of the analysis against arguments such as "Is the target ratio estimate accurate?" or "Is there measurement error?".
+It performs tens of thousands of simulations considering parameter uncertainty to calculate confidence intervals.
+
+### Requirements
+*   Python 3.6+
+*   **NumPy** library
+
+### Execution
+
+1. Install the library
+```bash
+pip install numpy
+```
+
+2. Run the simulation
+```bash
+# Basic verification (Example: 3,000 users, ratio 0.15)
+python verification/sensitivity_analysis.py --value 3000 --target_ratio 0.15
+
+# Advanced settings (Assuming higher uncertainty)
+# Use -sd to specify the standard deviation (default is 0.03)
+python verification/sensitivity_analysis.py --value 28200000 --target_ratio 1.0 --ratio_sd 0.1
+```
+
+### Interpretation
+If the lower bound of the "95% Confidence Interval (95% CI)" is below 1.0, you can statistically conclude that the measure is at an "Error Level" even when accounting for uncertainty.
+```
