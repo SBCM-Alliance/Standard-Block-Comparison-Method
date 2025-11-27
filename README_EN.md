@@ -30,18 +30,17 @@ $$ B = \frac{P \times R}{N} $$
 *   $V$ (Value): Announced outcome figure (e.g., cumulative 3,000 users, 10 billion yen budget)
 *   $B$ (Block): Standard Block (Average target number per municipality)
 *   $I$ (Impact): Effectiveness Impact
-
+*   
 ### Criteria (v2.0)
-Based on the calculated Impact value ($I$), the "Social Implementation Stage" of the measure is judged.
+The calculated Impact value ($I$) represents how many of Japan’s 1,718 municipalities could be fully covered by the measure. Based on this, the "Social Implementation Stage" is judged.
 
-| Impact Value ($I$) | Verdict | Benchmark / Meaning |
-| :--- | :--- | :--- |
-| **$I < 1.0$** | **Error Level** | Out of the question. Does not even cover a single municipality. |
-| **$I < 14$** | **Localized** | Experimental stage. Below the density of **Post Offices** (approx. 24k nationwide). |
-| **$I < 32$** | **Infrastructure Level** | Exceeds Post Offices. Passing grade as physical infrastructure. |
-| **$I < 700$** | **Convenience Level** | Exceeds **Convenience Stores** (approx. 55k nationwide). Highly convenient. |
-| **$I < 7,000$** | **Penetration Phase** | Reached **1%** of the population. Awareness is beginning to spread. |
-| **$I \ge 7,000$** | **Social OS Level** | Reached **10%** of the population. An indispensable social foundation. |
+| Impact Value ($I$)     | Estimated Coverage Rate | Verdict           | Benchmark / Meaning |
+|------------------------|--------------------------|-------------------|----------------------|
+| **$I < 1.0$**          | Less than 0.05%          | **Error Level**   | Out of scope. Cannot even cover one standard municipality. |
+| **$1.0 ≤ I < 17$**     | Less than 1%             | **Localized**     | Experimental phase. Not even reaching early adopters. |
+| **$17 ≤ I < 172$**     | 1%–10%                   | **Penetration**   | “One per classroom” level. Awareness is beginning to spread. |
+| **$172 ≤ I < 859$**    | 10%–50%                  | **Infrastructure**| “One in ten” level. Becoming a foundational public service. |
+| **$I ≥ 859$**          | Over 50%                 | **Social OS**     | Majority adoption. A prerequisite for modern society. |
 
 ## Case Studies
 
