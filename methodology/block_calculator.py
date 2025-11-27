@@ -22,18 +22,36 @@ def calculate_impact(value, standard_block):
 
 def get_verdict(impact):
     """
-    インパクト値に基づいて判定メッセージを返す
+    インパクト値に基づいて、詳細な「社会実装ステージ」を判定する
+    基準：
+    - I < 1.0: 誤差
+    - I < 14.0: 局所的 (郵便局未満)
+    - I < 32.0: 基礎インフラ (郵便局超え、コンビニ未満)
+    - I < 700.0: コンビニ級 (コンビニ超え、人口1%未満)
+    - I < 7000.0: 普及フェーズ (人口1%超え)
+    - I >= 7000.0: 社会OS (人口10%超え)
     """
     if impact < 1.0:
-        return "【誤差レベル】\n   判定: 1自治体すらカバーできていません (社会的インフラとして機能不全)"
-    elif impact < 10.0:
-        return "【局所的】\n   判定: 一部地域での実験段階、または特定の層にしか届いていません"
+        return "💀【誤差レベル (Error)】\n   判定: 1自治体すらカバーできていません。社会インフラとして機能不全です。"
+    
+    elif impact < 14.0:
+        return "⚠️【局所的 (Localized)】\n   判定: 一部地域での実験段階です。郵便局(I=14)のような「基礎インフラ」には達していません。"
+    
+    elif impact < 32.0:
+        return "🏠【基礎インフラ級 (Infrastructure)】\n   判定: 郵便局(I=14)と同等の密度です。物理的な拠点としては十分ですが、デジタルとしては物足りません。"
+    
+    elif impact < 700.0:
+        return "🏪【コンビニ級 (Convenience)】\n   判定: コンビニ(I=32)を超えています。生活圏に浸透していますが、住民全体の認知(1%)には届いていません。"
+    
+    elif impact < 7000.0:
+        return "🚀【普及フェーズ (Penetration)】\n   判定: 人口の1%を超えました。アーリーアダプターに届き、自律的な普及が始まっています。"
+    
     else:
-        return "【実効性あり】\n   判定: 一定の普及が見られ、効果検証が可能なフェーズです"
+        return "👑【社会OS級 (Social OS)】\n   判定: 人口の10%を超えました。水道や電気のように、なくてはならない社会基盤です。"
 
 def main():
     parser = argparse.ArgumentParser(
-        description='標準ブロック比較法 (Standard Block Comparison Method) 計算ツール'
+        description='標準ブロック比較法 (Standard Block Comparison Method) 計算ツール v2.0'
     )
     
     # 必須引数
@@ -79,15 +97,15 @@ def main():
         impact = calculate_impact(args.value, standard_block)
         
         # 結果表示
-        print("\n=== 標準ブロック比較法 分析結果 ===")
+        print("\n=== 標準ブロック比較法 分析結果 (v2.0) ===")
         print(f"1. 入力値 (Value):       {args.value:,.0f}")
         print(f"2. ターゲット比率:       {args.target_ratio * 100:.1f}%")
-        print("-" * 30)
+        print("-" * 40)
         print(f"3. 標準ブロック (B):     {standard_block:,.1f} (1自治体あたりのキャパシティ)")
         print(f"4. 実効性インパクト (I): {impact:.4f}")
-        print("-" * 30)
+        print("-" * 40)
         print(f"結論: {get_verdict(impact)}")
-        print("===================================\n")
+        print("========================================\n")
 
     except Exception as e:
         print(f"エラーが発生しました: {e}", file=sys.stderr)
