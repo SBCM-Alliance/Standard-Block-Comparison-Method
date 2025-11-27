@@ -31,14 +31,17 @@ $$ B = \frac{P \times R}{N} $$
 *   $B$ (Block): Standard Block (Average target number per municipality)
 *   $I$ (Impact): Effectiveness Impact
 
-### Criteria
-Based on the calculated Impact value ($I$), the penetration of the measure is judged as follows:
+### Criteria (v2.0)
+Based on the calculated Impact value ($I$), the "Social Implementation Stage" of the measure is judged.
 
-| Impact Value ($I$) | Verdict | Status |
+| Impact Value ($I$) | Verdict | Benchmark / Meaning |
 | :--- | :--- | :--- |
-| **$I < 1.0$** | **Error Level** | Does not even cover a single municipality. Dysfunctional as social infrastructure. |
-| **$1.0 \le I < 10$** | **Localized** | In an experimental phase in some regions, or reaching only a specific layer. |
-| **$I \ge 10$** | **Effective** | Certain penetration is observed; a phase where social effects are measurable. |
+| **$I < 1.0$** | **Error Level** | Out of the question. Does not even cover a single municipality. |
+| **$I < 14$** | **Localized** | Experimental stage. Below the density of **Post Offices** (approx. 24k nationwide). |
+| **$I < 32$** | **Infrastructure Level** | Exceeds Post Offices. Passing grade as physical infrastructure. |
+| **$I < 700$** | **Convenience Level** | Exceeds **Convenience Stores** (approx. 55k nationwide). Highly convenient. |
+| **$I < 7,000$** | **Penetration Phase** | Reached **1%** of the population. Awareness is beginning to spread. |
+| **$I \ge 7,000$** | **Social OS Level** | Reached **10%** of the population. An indispensable social foundation. |
 
 ## Case Studies
 
