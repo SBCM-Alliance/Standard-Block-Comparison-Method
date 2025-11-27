@@ -43,6 +43,7 @@ Based on the calculated Impact value ($I$), the penetration of the measure is ju
 ## Case Studies
 
 ### 1. Kashiwa City, Chiba Pref.: Preconception Care Project
+*   **Link:** [Read full analysis: Kashiwa (JP)](reports/kashiwa_report_2025.md)
 *   **Context:** The city introduced apps and services in collaboration with private companies as a "countermeasure against the declining birthrate."
 *   **Announced Figure ($V$):** 3,000 users
 *   **Target Ratio ($R$):** 0.15 (Assumed women of reproductive age)
@@ -51,6 +52,7 @@ Based on the calculated Impact value ($I$), the penetration of the measure is ju
 *   **Conclusion:** Calculated nationally, this equates to only "0.3 users per municipality." The penetration rate as a policy is at a **"margin of error"** level.
 
 ### 2. Osaka-Kansai Expo: Visitor Target
+*   **Link:** [Read full analysis: Osaka-Kansai Expo 2025](reports/osaka_expo_analysis_en.md)
 *   **Context:** Visitor target for the Expo scheduled for 2025.
 *   **Announced Figure ($V$):** 28.2 million people
 *   **Target Ratio ($R$):** 1.0 (Total population)
