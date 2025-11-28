@@ -1,10 +1,14 @@
 import argparse
 import sys
+import os
 
-# 定数定義 (日本の統計データに基づく)
-# 2023年推計人口など適宜更新可能
-DEFAULT_POPULATION = 124_000_000  # 日本の総人口
-DEFAULT_MUNICIPALITIES = 1_718    # 基礎自治体数
+# config.py をインポートするためのパス設定
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+try:
+    import config
+except ImportError:
+    print("エラー: 'config.py' が見つかりません。同じディレクトリに配置してください。", file=sys.stderr)
+    sys.exit(1)
 
 def calculate_standard_block(population, target_ratio, municipalities):
     """
@@ -42,7 +46,7 @@ def get_verdict(impact):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='標準ブロック比較法 (Standard Block Comparison Method) 計算ツール v2.1'
+        description='標準ブロック比較法 (Standard Block Comparison Method) 計算ツール v2.2'
     )
     
     # 必須引数
@@ -64,15 +68,15 @@ def main():
     parser.add_argument(
         '--population', '-p',
         type=int,
-        default=DEFAULT_POPULATION,
-        help=f'総人口。デフォルトは {DEFAULT_POPULATION:,}'
+        default=config.NATIONAL_POPULATION,
+        help=f'総人口。デフォルトは {config.NATIONAL_POPULATION:,}'
     )
     
     parser.add_argument(
         '--municipalities', '-m',
         type=int,
-        default=DEFAULT_MUNICIPALITIES,
-        help=f'基礎自治体数。デフォルトは {DEFAULT_MUNICIPALITIES:,}'
+        default=config.TOTAL_MUNICIPALITIES,
+        help=f'基礎自治体数。デフォルトは {config.TOTAL_MUNICIPALITIES:,}'
     )
 
     args = parser.parse_args()
@@ -88,7 +92,7 @@ def main():
         impact = calculate_impact(args.value, standard_block)
         
         # 結果表示
-        print("\n=== 標準ブロック比較法 分析結果 (v2.1) ===")
+        print("\n=== 標準ブロック比較法 分析結果 (v2.2) ===")
         print(f"1. 入力値 (Value):       {args.value:,.0f}")
         print(f"2. ターゲット比率:       {args.target_ratio * 100:.1f}%")
         print("-" * 40)
