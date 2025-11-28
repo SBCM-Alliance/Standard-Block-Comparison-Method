@@ -3,17 +3,11 @@ import numpy as np
 import sys
 import os
 
-# 親ディレクトリの 'methodology' フォルダから config.py を読み込むためのパス設定
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../methodology'))
+# 同じフォルダにある config.py を読み込む
 try:
-    import config
+    from . import config
 except ImportError:
-    # 開発環境によっては ../methodology が解決できない場合があるので、カレント直下も試す
-    try:
-        import methodology.config as config
-    except ImportError:
-        print("エラー: '../methodology/config.py' が見つかりません。", file=sys.stderr)
-        sys.exit(1)
+    import config
 
 def run_simulation(v_obs, r_mean, r_sd, population, municipalities, n_sims=20000):
     """
