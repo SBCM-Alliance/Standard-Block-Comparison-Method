@@ -7,7 +7,8 @@
 
 A Quantitative Framework for Detecting Budgetary Distortion and Evaluating Administrative Effectiveness.
 
----
+![SBCM Dashboard Demo](demo_dashboard.png)
+
 
 ## 📖 概要 (Overview)
 行政や巨大企業が発表する「累計〇〇人」「予算〇〇億円」といったマクロな数字は、往々にして実態（ROI）を隠蔽するために利用されます。
