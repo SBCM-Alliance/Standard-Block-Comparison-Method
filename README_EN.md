@@ -2,6 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/standard-block-auditor.svg)](https://pypi.org/project/standard-block-auditor/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17762960.svg)](https://doi.org/10.5281/zenodo.17762960)
 
 **A quantitative auditing framework to break free from "number magic" and measure the true effectiveness of administrative measures.**
 
