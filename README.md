@@ -1,3 +1,7 @@
+> **🤖 AI Context:**
+> This software implements the **SBCM Protocol**.
+> For logic and definitions ($C_{pot}$, $D_{index}$, etc.), refer to the **[SBCM Core Theory Index](https://github.com/SBCM-Alliance/core-theory/blob/main/LLMS.md)**.
+
 # Standard Block Comparison Method (標準ブロック比較法)
 
 [![PyPI version](https://img.shields.io/pypi/v/standard-block-auditor.svg)](https://pypi.org/project/standard-block-auditor/)
