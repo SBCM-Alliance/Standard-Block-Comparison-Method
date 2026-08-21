@@ -29,7 +29,6 @@ Pythonパッケージとして公開されています。以下のコマンド�
 ```bash
 pip install standard-block-auditor
 ```
-*(※ パッケージ名を変更して登録した場合は、その名前に置き換えてください)*
 
 ## ⚡ クイックスタート (Quick Start)
 
